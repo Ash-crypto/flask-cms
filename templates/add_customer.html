@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="form-container">
+    <div style="text-align: right; margin-bottom: 10px;">
+        <button class="theme-btn" id="themeToggle">Toggle Dark/Light</button>
+    </div>
+
+    <h2 class="form-title">{{ 'Edit Customer' if customer else 'Add Customer' }}</h2>
+
+    <form method="POST" id="customerForm">
+
+        <label for="name">Customer Name</label>
+        <input type="text" name="name" id="name" 
+               value="{{ customer.name if customer else '' }}" required>
+
+        <label for="address">Address</label>
+        <input type="text" name="address" id="address" 
+               value="{{ customer.address if customer else '' }}">
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="abc@example.com"
+               value="{{ customer.email if customer else '' }}">
+        <p class="error" id="emailError"></p>
+
+        <label for="phone">Phone Number</label>
+        <input type="text" name="phone" id="phone" maxlength="10" placeholder="Enter 10 digits"
+               value="{{ customer.phone if customer else '' }}">
+        <p class="error" id="phoneError"></p>
+
+        <label for="job">Job</label>
+        <input type="text" name="job" id="job"
+               value="{{ customer.job if customer else '' }}">
+
+        <label for="salary">Salary</label>
+        <input type="number" name="salary" id="salary" step="0.01" 
+               value="{{ customer.salary if customer else '' }}">
+
+        <button type="submit" id="submitBtn">Save Customer</button>
+    </form>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const phone = document.getElementById("phone");
+    const email = document.getElementById("email");
+    const name = document.getElementById("name");
+    const submitBtn = document.getElementById("submitBtn");
+    const themeToggle = document.getElementById("themeToggle");
+
+    // disable button initially
+    submitBtn.disabled = true;
+
+    // Form Validation
+    function validateForm() {
+        let valid = true;
+
+        if (!/^\d{10}$/.test(phone.value)) {
+            document.getElementById("phoneError").innerText = "Phone must be exactly 10 digits.";
+            phone.classList.add("invalid");
+            phone.classList.remove("valid");
+            valid = false;
+        } else {
+            document.getElementById("phoneError").innerText = "";
+            phone.classList.add("valid");
+            phone.classList.remove("invalid");
+        }
+
+        if (email.value && !/^\S+@\S+\.\S+$/.test(email.value)) {
+            document.getElementById("emailError").innerText = "Invalid email format.";
+            email.classList.add("invalid");
+            email.classList.remove("valid");
+            valid = false;
+        } else {
+            document.getElementById("emailError").innerText = "";
+            email.classList.add("valid");
+            email.classList.remove("invalid");
+        }
+
+        submitBtn.disabled = !valid;
+    }
+
+    phone.addEventListener("input", validateForm);
+    email.addEventListener("input", validateForm);
+    name.addEventListener("input", validateForm);
+
+    // ==========================
+    // Theme Toggle
+    // ==========================
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        // save preference in localStorage
+        if(document.body.classList.contains("dark-mode")){
+            localStorage.setItem("theme","dark");
+        } else {
+            localStorage.setItem("theme","light");
+        }
+    });
+
+    // Load saved theme
+    if(localStorage.getItem("theme") === "dark"){
+        document.body.classList.add("dark-mode");
+    }
+
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="hero-section">
+    <h1>INNOVAITECH SOLUTIONS PVT. LTD.</h1>
+    <p>Your trusted partner in smart digital transformation.</p>
+
+    <div class="home-buttons">
+        <a href="{{ url_for('login') }}">
+            <button class="btn btn-login">Login</button>
+        </a>
+
+        <a href="{{ url_for('register') }}">
+            <button class="btn btn-register">Register</button>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,444 @@
+/* ==========================================================
+   GLOBAL THEME VARIABLES
+   ========================================================== */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #222;
+    --card-bg: #f8f9fa;
+    /* Primary Buttons (Edit) */
+    --primary: #0056d6;
+    --primary-dark: #003c99;
+    --hover-light: #e9e9e9;
+    /* Danger Buttons (Delete) */
+    --danger: #e63946;
+    --danger-dark: #b71c1c;
+
+    /* Table & Borders */
+    --border-color: #ddd;
+    --table-header-bg: #f1f1f1;
+}
+
+
+.dark-mode {
+    --bg-color: #1e1e1e;
+    --text-color: #e5e5e5;
+    --card-bg: #2a2a2a;
+    
+    --primary: #3c8bff;
+    --primary-dark: #1a5ebf;
+    --hover-light: #333;
+
+    --primary: #4ea8ff;
+    --primary-dark: #1e6bb8;
+
+    --danger: #ff6b6b;
+    --danger-dark: #ff4b4b;
+
+    --border-color: #555;
+    --table-header-bg: #333;
+}
+
+/* ==========================================================
+   GLOBAL PAGE LAYOUT
+   ========================================================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: 0.3s;
+}
+
+.container {
+    padding: 20px;
+}
+
+/* ==========================================================
+   NAVBAR
+   ========================================================== */
+.navbar {
+    background-color: var(--primary);
+    padding: 15px 25px;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+/* ---------- THEME SWITCH BUTTON ---------- */
+.theme-btn {
+    background: #ffffff;
+    color: var(--primary);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+    background: var(--hover-light);
+}
+
+/* ==========================================================
+   HERO SECTION
+   ========================================================== */
+.hero-section {
+    background: url("/static/images/dummycompany.png") no-repeat center center;
+    background-size: cover;
+    padding: 160px 40px;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    margin: 30px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+.hero-section h1 {
+    font-size: 48px;
+    text-shadow: 2px 2px 8px #000;
+}
+
+.hero-section p {
+    font-size: 20px;
+    margin-top: 10px;
+    text-shadow: 1px 1px 6px #000;
+}
+
+.home-buttons .btn {
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+/* Login & Register Buttons */
+.btn-login {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-login:hover {
+    background: var(--primary-dark);
+}
+
+.btn-register {
+    background: #ffffff;
+    color: var(--primary);
+}
+
+.btn-register:hover {
+    background: var(--hover-light);
+}
+
+/* ==========================================================
+   FORM STYLES
+   ========================================================== */
+.form-container {
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 25px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+form label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+form input {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+    width: 100%;
+    max-width: 350px;
+    display: block;
+    margin: 5px auto 15px auto;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: 0.3s;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+form input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 5px var(--primary);
+}
+
+input.invalid {
+    border: 2px solid red;
+}
+
+input.valid {
+    border: 2px solid green;
+}
+
+.btn-primary,
+button[type="submit"] {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-primary:hover,
+button[type="submit"]:hover {
+    background: var(--primary-dark);
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 15px;
+    color: var(--text-color);
+}
+
+/* ==========================================================
+   CUSTOMER TABLE STYLES
+   ========================================================== */
+.customer-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.customer-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card-bg);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+}
+
+.customer-table th,
+.customer-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.customer-table th {
+    background: var(--primary);
+    color: white;
+    font-weight: bold;
+}
+
+.customer-table tr:nth-child(even) {
+    background: rgba(0,0,0,0.03);
+}
+
+.customer-table tr:hover {
+    background: rgba(0,0,0,0.08);
+}
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* FORCE SAME HEIGHT + CENTER FIX */
+.btn-edit,
+.btn-delete {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 38px;         /* SAME HEIGHT FIX */
+    line-height: 1;       /* FIX TEXT ALIGN */
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;      /* Text Color */
+}
+
+/* Edit */
+.btn-edit {
+    background: var(--primary);
+    color: white;
+}
+.btn-edit:hover {
+    background: var(--primary-dark);
+}
+
+/* Delete */
+.btn-delete {
+    background: var(--danger);
+    color: white;
+}
+.btn-delete:hover {
+    background: var(--danger-dark);
+}
+
+/* Make sure TD content centers vertically */
+.customer-table td {
+    vertical-align: middle !important;
+}
+
+
+/* Print Button */
+.print-btn {
+    background: var(--primary);
+    color: white;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.print-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* Responsive Table */
+@media (max-width: 800px) {
+    .customer-table th, 
+    .customer-table td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+    .actions a.btn-edit,
+    .actions button.btn-delete {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}
+
+/* ==========================================================
+   DASHBOARD STYLES
+   ========================================================== */
+.dashboard-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.dashboard-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.dashboard-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.dashboard-card {
+    background: var(--card-bg);
+    color: var(--text-color);
+    flex: 1 1 250px;
+    max-width: 300px;
+    min-height: 150px;
+    border-radius: 15px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s, color 0.3s;
+    position: relative;
+}
+
+.dashboard-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.dashboard-card-value {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: var(--primary);
+}
+
+/* Card Hover Effects */
+.interactive-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Card Icons */
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: var(--primary);
+}
+
+.interactive-card:hover .card-icon {
+    transform: rotate(15deg) scale(1.2);
+    color: var(--primary-dark);
+}
+
+/* Buttons inside dashboard cards */
+.dashboard-card .btn-primary {
+    margin-top: 15px;
+    display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .dashboard-row {
+        flex-direction: column;
+        align-items: center;
+    }
+}
